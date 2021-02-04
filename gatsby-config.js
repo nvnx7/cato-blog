@@ -5,7 +5,7 @@ module.exports = {
     siteUrl: `https://cato.tv`,
     social: {
       twitter: `catoverse`,
-      instagram: `catpverse`,
+      instagram: `catoverse`,
       linkedin: `catotv`,
     },
   },
