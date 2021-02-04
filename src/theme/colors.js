@@ -1,4 +1,4 @@
-export default colors = {
+const colors = {
   brand: {
     50: "#dbfefd",
     100: "#b6f5f1",
@@ -12,3 +12,5 @@ export default colors = {
     900: "#001817",
   },
 }
+
+export default colors

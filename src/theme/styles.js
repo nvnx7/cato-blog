@@ -1,5 +1,5 @@
 // Global style overrides
-export default styles = {
+const styles = {
   global: {
     body: {
       color: "#1A202C",
@@ -7,3 +7,5 @@ export default styles = {
     },
   },
 }
+
+export default styles
