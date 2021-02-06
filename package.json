@@ -12,6 +12,7 @@
     "@chakra-ui/react": "^1.2.1",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
+    "@react-icons/all-files": "^4.1.0",
     "fontsource-merriweather": "^4.0.0",
     "fontsource-poppins": "^4.0.0",
     "framer-motion": "^3.3.0",
