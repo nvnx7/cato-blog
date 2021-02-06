@@ -1,13 +1,14 @@
 module.exports = {
   siteMetadata: {
     title: `Cato Blog`,
-    description: `Blog for Cato.tv`,
+    description: `Blogs written by our curious educators!`,
     siteUrl: `https://cato.tv`,
     social: {
-      twitter: `catoverse`,
-      instagram: `catoverse`,
-      linkedin: `catotv`,
+      twitter: `https://twitter.com/catoverse`,
+      instagram: `https://www.instagram.com/catoverse/`,
+      linkedin: `https://www.linkedin.com/company/catotv/`,
     },
+    privacyPolicy: `https://docs.google.com/document/d/1nr-gURtdgKTo5rLEwArXvMODGYACpNp-yC36erDucV4/edit`,
   },
   plugins: [
     {
