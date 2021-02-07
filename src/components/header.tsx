@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { Link as GatsbyLink } from "gatsby"
 import {
   Box,
   Flex,
@@ -8,6 +8,7 @@ import {
   Container,
   Heading,
   Divider,
+  Link,
 } from "@chakra-ui/react"
 
 import CatoLogoSvg from "./CatoLogoSvg"
@@ -18,22 +19,11 @@ type HeaderProps = {
   date?: string
 }
 
-const query = graphql`
-  query HeaderQuery {
-    site {
-      siteMetadata {
-        description
-      }
-    }
-  }
-`
-
 const Header = ({ title, author, date }: HeaderProps) => {
-  const data = useStaticQuery(query)
   return (
     <Box bg="brand.500" w="100%" color="white">
       <Flex direction="row" justify="space-between" p={4}>
-        <Link to="/">
+        <Link as={GatsbyLink} to="/" _hover={{ textDecoration: "none" }}>
           <Text as="strong" fontSize="lg">
             cato
           </Text>
@@ -41,31 +31,37 @@ const Header = ({ title, author, date }: HeaderProps) => {
             blog
           </Text>
         </Link>
+
         <HStack as="nav" spacing={8}>
-          <Link to="/">
-            <Text>Home</Text>
+          <Link as={GatsbyLink} to="/">
+            Home
           </Link>
-          <Link to="/authors">
-            <Text>Authors</Text>
+
+          <Link as={GatsbyLink} to="/authors">
+            Authors
           </Link>
-          <Link to="/archive">
-            <Text>Archive</Text>
+
+          <Link as={GatsbyLink} to="/archive">
+            Archive
           </Link>
-          <Divider orientation="vertical"></Divider>
-          <Link to="https://cato.tv">
-            <Text color="brand.900">Cato.tv</Text>
+
+          <Divider orientation="vertical" />
+
+          <Link href="https://cato.tv" color="brand.900" isExternal>
+            Cato.tv
           </Link>
         </HStack>
       </Flex>
-      <Container centerContent py={24} px={0}>
+
+      <Container centerContent py={16} px={0}>
         <CatoLogoSvg />
 
         <Box as="header">
-          <Heading size="lg" align="center">
+          <Heading size="lg" align="center" mb={2}>
             {title}
           </Heading>
-          {author ? <Text>{author}</Text> : ``}
-          {date ? <Text>{date}</Text> : ``}
+          {author ? <Text align="center">{author}</Text> : ``}
+          {date ? <Text align="center">{date}</Text> : ``}
         </Box>
       </Container>
     </Box>
