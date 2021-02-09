@@ -9,11 +9,17 @@ import {
   Text,
   Center,
   Box,
+  Flex,
 } from "@chakra-ui/react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import CatoLogoSvg from "../components/CatoLogoSvg"
 
+/**
+ * @param site Site metadata from ./gatsby-config.js
+ * @param allMarkdownRemark List of markdown blog post data from ./content/blog
+ */
 type BlogIndexProps = {
   data: {
     site: {
@@ -68,8 +74,8 @@ const BlogIndex = ({ data }: BlogIndexProps) => {
 
   if (posts.length === 0) {
     return (
-      <Layout title={siteTitle}>
-        <SEO title="All posts" />
+      <Layout>
+        <SEO title={"All posts"} />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -80,8 +86,27 @@ const BlogIndex = ({ data }: BlogIndexProps) => {
   }
 
   return (
-    <Layout title={data.site.siteMetadata?.description}>
+    <Layout>
       <SEO title="Home" />
+
+      <Flex
+        direction="column"
+        justify="center"
+        align="center"
+        centerContent
+        bg="brand.500"
+        py={16}
+        px={0}
+      >
+        <CatoLogoSvg />
+
+        <Box as="header">
+          <Heading size="lg" align="center" mb={2}>
+            {data.site.siteMetadata?.description}
+          </Heading>
+        </Box>
+      </Flex>
+
       <Center>
         <List py={8} px={4} maxW="3xl">
           {posts.map(post => {
@@ -91,7 +116,7 @@ const BlogIndex = ({ data }: BlogIndexProps) => {
               <ListItem key={post.fields.slug} my={8}>
                 <Box
                   className="post-item"
-                  boxShadow="2xl"
+                  boxShadow="xl"
                   p="6"
                   rounded="md"
                   bg="white"
