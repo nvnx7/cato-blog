@@ -1,25 +1,11 @@
 import React from "react"
 import { Link as GatsbyLink } from "gatsby"
-import {
-  Box,
-  Flex,
-  HStack,
-  Text,
-  Container,
-  Heading,
-  Divider,
-  Link,
-} from "@chakra-ui/react"
+import { Box, Flex, HStack, Text, Divider, Link } from "@chakra-ui/react"
 
-import CatoLogoSvg from "./CatoLogoSvg"
-
-type HeaderProps = {
-  title: string
-  author?: string
-  date?: string
-}
-
-const Header = ({ title, author, date }: HeaderProps) => {
+/**
+ * Common header to display page navigation links etc.
+ */
+const Header = () => {
   return (
     <Box bg="brand.500" w="100%" color="white">
       <Flex direction="row" justify="space-between" p={4}>
@@ -52,18 +38,6 @@ const Header = ({ title, author, date }: HeaderProps) => {
           </Link>
         </HStack>
       </Flex>
-
-      <Container centerContent py={16} px={0}>
-        <CatoLogoSvg />
-
-        <Box as="header">
-          <Heading size="lg" align="center" mb={2}>
-            {title}
-          </Heading>
-          {author ? <Text align="center">{author}</Text> : ``}
-          {date ? <Text align="center">{date}</Text> : ``}
-        </Box>
-      </Container>
     </Box>
   )
 }
