@@ -1,11 +1,9 @@
 import React from "react"
 import { graphql, Link as GatsbyLink } from "gatsby"
 import {
-  Heading,
   Text,
   Center,
   Box,
-  HStack,
   Flex,
   LinkOverlay,
   LinkBox,
@@ -14,6 +12,8 @@ import {
 
 import { FaAngleRight } from "@react-icons/all-files/fa/FaAngleRight"
 import { FaAngleLeft } from "@react-icons/all-files/fa/FaAngleLeft"
+
+import BlogHeader from "../components/blog-header"
 
 type BlogPostProps = {
   data: {
@@ -101,39 +101,30 @@ const BlogPostTemplate = ({ data }: BlogPostProps) => {
   const { previous, next } = data
 
   return (
-    <Layout title={siteTitle}>
+    <Layout>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <Center>
-        <Box py={8} px={4} maxW="3xl">
-          <Box as="article" itemType="http://schema.org/Article">
-            <Box as="header" mt={4} mb={8}>
-              <Heading>{post.frontmatter.title}</Heading>
-              <HStack spacing={24} mt={2}>
-                <Text fontSize="sm" textTransform="uppercase">
-                  {post.frontmatter.date}
-                </Text>
-                <Text fontSize="sm" textTransform="uppercase" fontWeight="bold">
-                  {/*post.frontmatter.author*/ "John Doe"}
-                </Text>
-              </HStack>
-            </Box>
 
+      <Box w="100%">
+        <Box as="article" itemType="http://schema.org/Article">
+          <BlogHeader
+            title={post.frontmatter.title}
+            author={"John Doe"}
+            date={post.frontmatter.date}
+          />
+
+          <Center as="section" py={8} px={4}>
             <Box
-              as="section"
+              maxW="3xl"
               dangerouslySetInnerHTML={{ __html: post.html }}
             ></Box>
-          </Box>
+          </Center>
+        </Box>
 
-          <Flex
-            as="nav"
-            justify="space-between"
-            alignItems="center"
-            wrap="wrap"
-            my={8}
-          >
+        <Center my={8}>
+          <Flex as="nav" justify="space-between" wrap="wrap" w="3xl">
             <Center
               _hover={{ color: "brand.500" }}
               w="xs"
@@ -172,8 +163,8 @@ const BlogPostTemplate = ({ data }: BlogPostProps) => {
               )}
             </Center>
           </Flex>
-        </Box>
-      </Center>
+        </Center>
+      </Box>
     </Layout>
   )
 }
