@@ -1,21 +1,22 @@
 import React from "react"
-import { Link } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
 
+/**
+ * @param children Main content of layout
+ */
 type LayoutProps = {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
-const Layout = ({ children } : LayoutProps) => {
-
+const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="global-wrapper" data-is-root-path={true}>
-      <header className="global-header"><Header /></header>
+    <div>
+      <header>
+        <Header />
+      </header>
       <main>{children}</main>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   )
 }
