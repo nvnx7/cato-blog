@@ -184,7 +184,7 @@ const BlogPage = ({ data, pageContext }: BlogPageProps) => {
       </Flex>
 
       <VStack>
-        <List py={8} px={4} maxW="3xl">
+        <List py={0} px={4} maxW="3xl">
           {posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
 
@@ -229,7 +229,15 @@ const BlogPage = ({ data, pageContext }: BlogPageProps) => {
         {numPages <= 1 ? (
           ``
         ) : (
-          <HStack spacing={8} p={4} maxW="3xl">
+          <Flex
+            direction={{ base: "column", md: "row" }}
+            justify="space-between"
+            align="center"
+            mb={8}
+            px={8}
+            w="100%"
+            maxW="3xl"
+          >
             <LinkBox
               w="120px"
               h="40px"
@@ -246,7 +254,7 @@ const BlogPage = ({ data, pageContext }: BlogPageProps) => {
               </Center>
             </LinkBox>
 
-            <HStack spacing={2}>
+            <HStack spacing={2} py={4}>
               {/** Leading ellipses to indicate presence of more leading buttons, linking to previous pages*/}
               {isFirst || numPages <= maxNavButtons ? `` : <Text>...</Text>}
 
@@ -275,7 +283,7 @@ const BlogPage = ({ data, pageContext }: BlogPageProps) => {
                 </LinkOverlay>
               </Center>
             </LinkBox>
-          </HStack>
+          </Flex>
         )}
       </VStack>
     </Layout>

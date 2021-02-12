@@ -130,8 +130,16 @@ const BlogPostTemplate = ({ data }: BlogPostProps) => {
           </Center>
         </Box>
 
-        <Center my={8}>
-          <Flex as="nav" justify="space-between" wrap="wrap" w="3xl">
+        <Center mb={16}>
+          <Flex
+            as="nav"
+            direction={{ base: "column", md: "row" }}
+            justify="space-between"
+            align="center"
+            wrap="wrap"
+            w="100%"
+            maxW="3xl"
+          >
             <Center
               w="xs"
               align="center"

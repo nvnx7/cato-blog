@@ -28,7 +28,12 @@ const Footer = () => {
   const data = useStaticQuery(query)
   return (
     <Box as="footer" bg="brand.900" w="100%" color="white" p={2}>
-      <Flex justify="space-between" wrap="wrap">
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        justify="space-between"
+        align="center"
+        wrap="wrap"
+      >
         <HStack spacing={8} p={4}>
           <Link
             href={data.site.siteMetadata?.social?.twitter}
@@ -67,10 +72,12 @@ const Footer = () => {
           </Link>
         </HStack>
 
-        <Text p={4}>Written with ❤️️ by back benchers</Text>
+        <Text m={0} p={4}>
+          Written with ❤️️ by back benchers
+        </Text>
 
         <Center p={4}>
-          <Text mr={2}>© 2020</Text>
+          <Text pr={2}>© 2020</Text>
           <Link href={data.site.siteMetadata?.privacyPolicy} isExternal>
             Privacy Policy
           </Link>
