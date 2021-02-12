@@ -32,7 +32,7 @@ const styles = {
     "ol, ul": {
       listStylePosition: "inside",
       listStyleImage: "none",
-      marginBottom: spacing8,
+      margin: `${spacing0} ${spacing0} ${spacing8} ${spacing8}`,
     },
     "ol li, ul li": {
       marginBottom: spacing4,
@@ -42,18 +42,14 @@ const styles = {
       marginBottom: spacing0,
     },
     "li > ul": {
-      marginLeft: spacing8,
-      marginTop: spacing4,
-      marginBottom: spacing4,
+      margin: `${spacing4} ${spacing0} ${spacing8} ${spacing8}`,
     },
     "li *:last-child": {
       marginBottom: spacing0,
     },
 
     blockquote: {
-      marginLeft: spacing8,
-      marginRight: spacing8,
-      marginBottom: spacing8,
+      margin: `${spacing0} ${spacing8} ${spacing8} ${spacing8}`,
       fontStyle: "italic",
       padding: `${spacing0} ${spacing0} ${spacing0} ${spacing6}`,
       borderLeft: `${spacing1} solid ${brandColor}`,
