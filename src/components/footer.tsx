@@ -21,6 +21,9 @@ const query = graphql`
   }
 `
 
+/**
+ * @description Common footer to display at the bottom of pages
+ */
 const Footer = () => {
   const data = useStaticQuery(query)
   return (

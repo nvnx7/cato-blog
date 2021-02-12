@@ -95,6 +95,11 @@ export const query = graphql`
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+/**
+ * @param data Data from graphql query
+ * @returns Component to display a blog
+ *
+ */
 const BlogPostTemplate = ({ data }: BlogPostProps) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`

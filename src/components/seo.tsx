@@ -2,12 +2,6 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-/**
- * @param title Document title (title on browser tab)
- * @param description Document metadata description
- * @param lang Document metadata lang (default - en)
- * @param meta List of metadata objects to be put in document head
- */
 type SEOTypes = {
   title: string
   description?: string
@@ -29,6 +23,14 @@ const query = graphql`
   }
 `
 
+/**
+ * @param title Document title (title on browser tab)
+ * @param description Document metadata description
+ * @param lang Document metadata lang (default - en)
+ * @param meta List of metadata objects to be put in document head
+ *
+ * @returns Component to fill up head tag
+ */
 const SEO = ({ title, description = "", lang = "en", meta = [] }: SEOTypes) => {
   const { site } = useStaticQuery(query)
 

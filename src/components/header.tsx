@@ -3,7 +3,7 @@ import { Link as GatsbyLink } from "gatsby"
 import { Box, Flex, HStack, Text, Divider, Link } from "@chakra-ui/react"
 
 /**
- * Common header to display page navigation links etc.
+ * @description Common header to display page navigation links etc.
  */
 const Header = () => {
   return (
