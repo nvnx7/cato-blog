@@ -18,6 +18,7 @@ const styles = {
     body: {
       color: "#1A202C",
       bg: "white",
+      minHeight: "100vh",
     },
 
     "*, :after, :before": {
