@@ -28,9 +28,10 @@ type BlogPostProps = {
       excerpt: string
       html: string
       frontmatter: {
-        date: string
         title: string
+        author: string
         description: string
+        date: string
       }
     }
     previous: {
@@ -69,6 +70,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        author
         date(formatString: "MMMM DD, YYYY")
         description
       }
@@ -116,7 +118,7 @@ const BlogPostTemplate = ({ data }: BlogPostProps) => {
         <Box as="article" itemType="http://schema.org/Article">
           <BlogHeader
             title={post.frontmatter.title}
-            author={"John Doe"}
+            author={post.frontmatter.author}
             date={post.frontmatter.date}
           />
 
@@ -131,10 +133,10 @@ const BlogPostTemplate = ({ data }: BlogPostProps) => {
         <Center my={8}>
           <Flex as="nav" justify="space-between" wrap="wrap" w="3xl">
             <Center
-              _hover={{ color: "brand.500" }}
               w="xs"
               align="center"
               mt={4}
+              _hover={{ color: "brand.500" }}
             >
               {previous && (
                 <LinkBox boxShadow="xl" p="6" rounded="md" bg="white" w="100%">
@@ -142,7 +144,12 @@ const BlogPostTemplate = ({ data }: BlogPostProps) => {
                     Previous
                   </Text>
                   <Icon as={FaAngleLeft} w={6} h={6} />
-                  <LinkOverlay as={GatsbyLink} to={previous.fields.slug}>
+                  <LinkOverlay
+                    as={GatsbyLink}
+                    to={previous.fields.slug}
+                    color="brand.900"
+                    _hover={{ color: "brand.500" }}
+                  >
                     {previous.frontmatter.title}
                   </LinkOverlay>
                 </LinkBox>
@@ -160,7 +167,12 @@ const BlogPostTemplate = ({ data }: BlogPostProps) => {
                   <Text fontSize="sm" color="gray.400">
                     Next
                   </Text>
-                  <LinkOverlay as={GatsbyLink} to={next.fields.slug}>
+                  <LinkOverlay
+                    as={GatsbyLink}
+                    to={next.fields.slug}
+                    color="brand.900"
+                    _hover={{ color: "brand.500" }}
+                  >
                     {next.frontmatter.title}
                   </LinkOverlay>
                   <Icon as={FaAngleRight} w={6} h={6} />
