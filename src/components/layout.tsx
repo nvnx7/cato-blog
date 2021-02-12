@@ -1,6 +1,7 @@
 import React from "react"
 import Header from "./header"
 import Footer from "./footer"
+import { Box } from "@chakra-ui/react"
 
 type LayoutProps = {
   children: React.ReactNode
@@ -16,7 +17,9 @@ const Layout = ({ children }: LayoutProps) => {
       <header>
         <Header />
       </header>
-      <main>{children}</main>
+      <Box as="main" minH="83vh">
+        {children}
+      </Box>
       <Footer />
     </div>
   )
