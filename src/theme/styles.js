@@ -12,8 +12,8 @@ const lineHeightRelaxed = 1.625
 const styles = {
   global: {
     html: {
-      "-webkit-font-smoothing": "antialiased",
-      "-moz-osx-font-smoothing": "grayscale",
+      WebkitFontSmoothing: "antialiased",
+      MozOsxFontSmoothing: "grayscale",
     },
     body: {
       color: "#1A202C",
@@ -24,7 +24,8 @@ const styles = {
       boxSizing: "border-box",
     },
 
-    p: {
+    /** Only for para in the article's section */
+    "section > div > p, section > p": {
       lineHeight: lineHeightRelaxed,
       marginBottom: spacing4,
     },
@@ -58,7 +59,8 @@ const styles = {
       listStylePosition: "inside",
     },
 
-    a: {
+    /** Color for only links in the article's section */
+    "section > div > p > a, section > p > a, section > a": {
       color: brandColor,
     },
     "a:hover, a:focus": {
