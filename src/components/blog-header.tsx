@@ -1,7 +1,7 @@
 import React from "react"
 import { Box, Text, Container, Heading } from "@chakra-ui/react"
 
-import CatoLogoSvg from "./CatoLogoSvg"
+import CatoLogoSvg from "./cato-logo"
 
 type BlogHeaderProps = {
   title: string

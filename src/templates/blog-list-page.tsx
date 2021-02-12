@@ -17,7 +17,7 @@ import {
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import CatoLogoSvg from "../components/CatoLogoSvg"
+import CatoLogoSvg from "../components/cato-logo"
 
 type BlogPageProps = {
   data: {
