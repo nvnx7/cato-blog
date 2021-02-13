@@ -14,7 +14,7 @@ Blog site for [Cato.tv](https://cato.tv), built with Gatsby from [this](https://
 
 1.  **Clone the repo.**
 
-    Use the Gatsby CLI to create a new site, specifying the blog starter.
+    Use git cli to clone this repo.
 
     ```shell
     # create a new Gatsby site using the blog starter
@@ -23,7 +23,7 @@ Blog site for [Cato.tv](https://cato.tv), built with Gatsby from [this](https://
 
 2.  **Install dependencies.**
 
-    Navigate into your new site’s directory and start it up.
+    Install all required packages listed in `package.json`.
 
     ```shell
     cd cato-blog/
@@ -32,7 +32,7 @@ Blog site for [Cato.tv](https://cato.tv), built with Gatsby from [this](https://
 
 3.  **Start developing.**
 
-    Navigate into your new site’s directory and start it up.
+    Navigate into site’s directory and start it up using gatsby cli.
 
     ```shell
     cd cato-blog/
@@ -57,7 +57,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── gatsby-browser.js
     ├── gatsby-config.js
     ├── gatsby-node.js
-    ├── gatsby-ssr.js
+    ├── tsconfig.json
     ├── LICENSE
     ├── package-lock.json
     ├── package.json
