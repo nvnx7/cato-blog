@@ -122,10 +122,19 @@ const BlogPostTemplate = ({ data }: BlogPostProps) => {
             date={post.frontmatter.date}
           />
 
-          <Center as="section" py={8} px={4}>
+          <Center as="section" mt={4} py={8} px={4} className="blog-section">
             <Box
               maxW={{ base: "100%", md: "3xl" }}
               dangerouslySetInnerHTML={{ __html: post.html }}
+              sx={{
+                ".blog-section > & > p:first-child::first-letter": {
+                  fontSize: "5xl",
+                  fontWeight: "bold",
+                  fontFamily: "heading",
+                  lineHeight: "1rem",
+                  color: "brand.500",
+                },
+              }}
             ></Box>
           </Center>
         </Box>
