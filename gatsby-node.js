@@ -1,4 +1,5 @@
 const path = require(`path`)
+const postsPerPage = require("./gatsby-config").siteMetadata.postsPerPage
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -56,7 +57,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   }
 
-  const postsPerPage = 2
   const numPages = Math.ceil(posts.length / postsPerPage)
 
   Array.from({ length: numPages }).forEach((_, i) => {

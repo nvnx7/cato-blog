@@ -8,6 +8,7 @@ module.exports = {
       instagram: `https://www.instagram.com/catoverse/`,
       linkedin: `https://www.linkedin.com/company/catotv/`,
     },
+    postsPerPage: 10,
     privacyPolicy: `https://docs.google.com/document/d/1nr-gURtdgKTo5rLEwArXvMODGYACpNp-yC36erDucV4/edit`,
   },
   plugins: [
