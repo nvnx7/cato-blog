@@ -50,6 +50,10 @@ const styles = {
       marginBottom: spacing0,
     },
 
+    code: {
+      overflow: "scroll",
+    },
+
     blockquote: {
       margin: `${spacing0} ${spacing8} ${spacing8} ${spacing8}`,
       fontStyle: "italic",
