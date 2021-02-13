@@ -26,12 +26,13 @@ const styles = {
     },
 
     /** Only for para in the article's section */
-    "section > div > p, section > p": {
+    "section  p": {
       lineHeight: lineHeightRelaxed,
       marginBottom: spacing4,
     },
 
-    "ol, ul": {
+    /** Only for list in the article's section */
+    "section ol, section ul": {
       listStylePosition: "inside",
       listStyleImage: "none",
       margin: `${spacing0} ${spacing0} ${spacing8} ${spacing8}`,
@@ -65,7 +66,7 @@ const styles = {
     },
 
     /** Color for only links in the article's section */
-    "section > div > p > a, section > p > a, section > a": {
+    "section a": {
       color: brandColor,
     },
     "a:hover, a:focus": {
