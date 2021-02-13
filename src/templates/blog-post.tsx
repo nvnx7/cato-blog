@@ -124,7 +124,7 @@ const BlogPostTemplate = ({ data }: BlogPostProps) => {
 
           <Center as="section" py={8} px={4}>
             <Box
-              maxW="3xl"
+              maxW={{ base: "100%", md: "3xl" }}
               dangerouslySetInnerHTML={{ __html: post.html }}
             ></Box>
           </Center>
