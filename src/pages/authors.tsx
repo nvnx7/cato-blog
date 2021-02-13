@@ -42,7 +42,9 @@ type AuthorsPageProps = {
 
 export const query = graphql`
   query authorsQuery {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___authorTwitter], order: ASC }
+    ) {
       edges {
         node {
           frontmatter {
@@ -63,10 +65,32 @@ export const query = graphql`
 
 /**
  * @param data Data from graphql query
- * @returns Component to display list of all blogs
+ * @returns Component to display list of all authors
  */
 const AuthorsPage = ({ data }: AuthorsPageProps) => {
-  const posts = data.allMarkdownRemark.edges.map(edge => edge.node)
+  let authors = data.allMarkdownRemark.edges.map(edge => edge.node.frontmatter)
+
+  /** Collect author objects with unique `author` & `authorTwitter` pair */
+  const distinctAuthors: {
+    [key: string]: { author: string; authorTwitter: string }
+  } = {}
+  authors.forEach(authorData => {
+    /** Remove leading @ char from twitter username, if present*/
+    let authorTwitter: string = authorData.authorTwitter ?? ``
+    authorTwitter = authorTwitter.startsWith(`@`)
+      ? authorTwitter.slice(1)
+      : authorTwitter
+
+    const key = authorData.authorTwitter
+      ? authorData.authorTwitter
+      : authorData.author
+    distinctAuthors[key] = {
+      author: authorData.author,
+      authorTwitter: authorData.authorTwitter ?? ``,
+    }
+  })
+
+  authors = Object.values(distinctAuthors)
 
   return (
     <Layout>
@@ -92,23 +116,17 @@ const AuthorsPage = ({ data }: AuthorsPageProps) => {
 
       <Center>
         <List py={0} px={4} maxW="3xl">
-          {posts.map((post, i) => {
-            /** Remove leading @ char from twitter username, if present*/
-            let authorTwitter: string = post.frontmatter.authorTwitter ?? ``
-            authorTwitter = authorTwitter.startsWith(`@`)
-              ? authorTwitter.slice(1)
-              : authorTwitter
-
+          {authors.map((authorData, i) => {
             return (
               <ListItem key={i} my={4}>
                 <Box className="archive-post-item" p={4} textAlign="center">
                   <LinkBox as="article">
                     <Box as="header" mb={2}>
-                      {authorTwitter && (
+                      {authorData.authorTwitter && (
                         <HStack spacing={1} mb={2}>
                           <Icon as={FaTwitter} w={4} h={4} color="brand.500" />
                           <Text fontSize="sm" color="gray.400">
-                            {`@${authorTwitter}`}
+                            {`@${authorData.authorTwitter}`}
                           </Text>
                         </HStack>
                       )}
@@ -120,19 +138,19 @@ const AuthorsPage = ({ data }: AuthorsPageProps) => {
                           },
                         }}
                       >
-                        {authorTwitter ? (
+                        {authorData.authorTwitter ? (
                           <LinkOverlay
                             href={
-                              authorTwitter
-                                ? `https://twitter.com/${authorTwitter}`
+                              authorData.authorTwitter
+                                ? `https://twitter.com/${authorData.authorTwitter}`
                                 : `#`
                             }
                             isExternal
                           >
-                            {post.frontmatter.author}
+                            {authorData.author}
                           </LinkOverlay>
                         ) : (
-                          post.frontmatter.author
+                          authorData.author
                         )}
                       </Heading>
                     </Box>
