@@ -17,13 +17,12 @@ Blog site for [Cato.tv](https://cato.tv), built with Gatsby from [this](https://
     Use git cli to clone this repo.
 
     ```shell
-    # create a new Gatsby site using the blog starter
     git clone https://github.com/theNvN/cato-blog.git
     ```
 
 2.  **Install dependencies.**
 
-    Install all required packages listed in `package.json`.
+    Navigate into site’s directory and install all required packages listed in `package.json`.
 
     ```shell
     cd cato-blog/
@@ -32,10 +31,9 @@ Blog site for [Cato.tv](https://cato.tv), built with Gatsby from [this](https://
 
 3.  **Start developing.**
 
-    Navigate into site’s directory and start it up using gatsby cli.
+    Start it up using gatsby cli.
 
     ```shell
-    cd cato-blog/
     gatsby develop
     ```
 
