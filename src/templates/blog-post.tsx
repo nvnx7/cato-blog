@@ -118,8 +118,8 @@ const BlogPostTemplate = ({ data }: BlogPostProps) => {
         <Box as="article" itemType="http://schema.org/Article">
           <BlogHeader
             title={post.frontmatter.title}
-            author={post.frontmatter.author}
-            date={post.frontmatter.date}
+            author={post.frontmatter?.author}
+            date={post.frontmatter?.date}
           />
 
           <Center as="section" mt={4} py={8} px={4} className="blog-section">

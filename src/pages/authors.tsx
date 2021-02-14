@@ -42,9 +42,7 @@ type AuthorsPageProps = {
 
 export const query = graphql`
   query authorsQuery {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___authorTwitter], order: ASC }
-    ) {
+    allMarkdownRemark(sort: { fields: [frontmatter___author], order: ASC }) {
       edges {
         node {
           frontmatter {
@@ -84,10 +82,12 @@ const AuthorsPage = ({ data }: AuthorsPageProps) => {
     const key = authorData.authorTwitter
       ? authorData.authorTwitter
       : authorData.author
-    distinctAuthors[key] = {
-      author: authorData.author,
-      authorTwitter: authorData.authorTwitter ?? ``,
-    }
+
+    if (key)
+      distinctAuthors[key] = {
+        author: authorData.author,
+        authorTwitter: authorData.authorTwitter ?? ``,
+      }
   })
 
   authors = Object.values(distinctAuthors)
