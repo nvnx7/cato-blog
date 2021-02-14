@@ -1,5 +1,7 @@
 ---
-title: Hello World
+title: Hello World, This is Sample Post Title
+author: Jane Doe
+authorTwitter: jane
 date: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
 ---
@@ -164,7 +166,7 @@ Paragraph:
 
     Code
 
-<!-- -->
+
 
     Paragraph:
 
